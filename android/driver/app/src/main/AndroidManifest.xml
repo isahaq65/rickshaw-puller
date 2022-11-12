@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rickshawpuller.r.driverapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="R Driver"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.rickshawpuller.r.driverapp.activity.TripHistoryActivity"
+            android:screenOrientation="portrait"/>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name="com.rickshawpuller.r.driverapp.activity.LoginActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyARiMep7MWawDd7wyJjddOzvWNpNcpurCY" />
+
+        <activity android:name="com.rickshawpuller.r.driverapp.activity.CustomerCallActivity"
+            android:screenOrientation="portrait"
+            />
+
+        <service
+            android:name="com.rickshawpuller.r.driverapp.service.firebaseMessaging"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+<!--                <category android:name="android.intent.category.BROWSABLE"/>-->
+            </intent-filter>
+        </service>
+
+
+        <activity
+            android:name="com.rickshawpuller.r.driverapp.activity.TrackingActivity"
+            android:label="@string/title_activity_driver_tracking"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.rickshawpuller.r.driverapp.activity.TripDetailActivity"
+            android:label="@string/title_activity_trip_detail"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.rickshawpuller.r.driverapp.activity.HomeActivity"
+            android:label="@string/title_activity_drawer_home"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+    </application>
+
+</manifest>
